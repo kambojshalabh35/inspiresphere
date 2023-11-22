@@ -1,0 +1,87 @@
+{% extends 'base.html' %} 
+{% load static %} 
+
+{% block title %}InspireSphere | Home{% endblock %}
+
+{% block body %}
+
+    <section id="contact" class="contact mt-5 pt-5">
+
+        <div class="container mt-5" data-aos="fade-up">
+    
+          <header class="section-header">
+            <h2>Student Register</h2>
+            <p>Register yourself as a student</p>
+          </header>
+    
+          <div class="row gy-4">
+    
+            <div class="col-lg-6 mx-auto">
+              <form method="post" class="php-email-form">
+                {% csrf_token %}
+                <div class="row gy-4">
+    
+                  <div class="col-md-6">
+                    <input type="text" name="fname" class="form-control" placeholder="First Name" required>
+                  </div>
+    
+                  <div class="col-md-6 ">
+                    <input type="text" class="form-control" name="lname" placeholder="Last Name" required>
+                  </div>
+    
+                  <div class="col-md-6">
+                    <input type="text" class="form-control" name="username" placeholder="Username" required>
+                  </div>
+    
+                  <div class="col-md-6">
+                    <input type="email" class="form-control" name="email" placeholder="Email" required>
+                  </div>
+    
+                  <div class="col-md-6">
+                    <input type="password" class="form-control" name="pass1" placeholder="Password" required>
+                  </div>
+    
+                  <div class="col-md-6">
+                    <input type="password" class="form-control" name="pass2" placeholder="Confirm Password" required>
+                  </div>
+    
+                  <div>
+                    Note:
+                    <ol>
+                        <li>Your password can't be too similar to your other personal information.</li>
+                        <li>Your password must contain at least 8 characters.</li>
+                        <li>Your password can't be a commonly used password.</li>
+                        <li>Your password can't be entirely numeric.</li>
+                    </ol>
+                  </div>
+    
+                  <div class="col-md-12 text-center">
+                    {% if error_message %}
+                    <div class="error-message">{{error_message}}</div>
+                    {% endif %}
+                    {% if success_message %}
+                    <div class="sent-message">Your message has been sent. Thank you!</div>
+                    {% endif %}
+
+                    <button type="submit">Register Now</button>
+                  </div>
+    
+                </div>
+                <div class="text-center mt-3">
+                    <p>Already have an account? Login <a href="/accounts/student-login">here</a></p>
+                </div>
+              </form>
+              
+            </div>
+    
+          </div>
+    
+        </div>
+
+
+  </section>
+
+
+
+{% endblock %}
+

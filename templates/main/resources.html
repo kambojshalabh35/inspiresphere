@@ -1,0 +1,37 @@
+{% extends 'base.html' %} 
+{% load static %} 
+
+{% block title %}InspireSphere | Resources{% endblock %}
+
+{% block body %}
+  <section id="values" class="values mt-5 pt-5">
+
+    <div class="container" data-aos="fade-up">
+
+      <header class="section-header">
+        <h2>Learning Resources</h2>
+        <p>Free Learning Resources for you</p>
+      </header>
+
+      <div class="row">
+        {% for course in courses %}
+
+        <div class="col-lg-4 mb-3" data-aos="fade-up" data-aos-delay="200">
+          <a href="{{course.link}}" target="_blank">
+            <div class="box">
+              <img src="/media/{{course.photo}}" class="img-fluid" alt="">
+              <h3>{{course.title}} <span style="font-size: 12px; color: #aaaaaa;">({{course.modules}} modules)</span></h3>
+              <p>{{course.description}}</p>
+            </div>
+          </a>
+        </div>
+          
+        {% endfor %}
+
+      </div>
+
+    </div>
+
+  </section>
+{% endblock %}
+

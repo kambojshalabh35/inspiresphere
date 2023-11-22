@@ -1,0 +1,98 @@
+{% extends 'base.html' %} 
+{% load static %} 
+
+{% block title %}InspireSphere | Home{% endblock %}
+
+{% block body %}
+
+    <section id="contact" class="contact mt-5 pt-5">
+
+        <div class="container mt-5" data-aos="fade-up">
+    
+          <header class="section-header">
+            <h2>Pitch Ideas</h2>
+            <p>
+                We are looking for ideas that can be implemented in the real world.
+            </p>
+          </header>
+    
+          <div class="row gy-4">
+    
+            <div class="col-lg-6 mx-auto">
+              <form method="post" class="php-email-form" enctype="multipart/form-data">
+                {% csrf_token %}
+                <div class="row gy-4">
+    
+                  <div class="col-md-6">
+                    <input type="text" name="organization_name" class="form-control" placeholder="Organization Name" required>
+                  </div>
+    
+                  <div class="col-md-6 ">
+                    <input type="text" class="form-control" name="sector" placeholder="Sector" required>
+                  </div>
+    
+                  <div class="col-md-6">
+                    <input type="text" class="form-control" name="business_phone_number" placeholder="Business Contect Number" required>
+                  </div>
+    
+                  <div class="col-md-6">
+                    <input type="file" class="form-control" name="document1" placeholder="Document 1" required>
+                  </div>
+    
+                  <div class="col-md-6">
+                    <input type="file" class="form-control" name="document2" placeholder="Document 2" required>
+                  </div>
+    
+                  <div class="col-md-6">
+                    <input type="text" class="form-control" name="theme" placeholder="Theme" required>
+                  </div>
+    
+                  <div class="col-md-6">
+                    <input type="text" class="form-control" name="category" placeholder="Category" required>
+                  </div>
+    
+                  <div class="col-md-6">
+                    <input type="text" class="form-control" name="problem_statement_title" placeholder="Problem Statement Title" required>
+                  </div>
+
+                  <div class="col-md-12">
+                    <textarea type="text" class="form-control" name="problem_statement_description" placeholder="Problem Statement Description" required></textarea>
+                  </div>
+    
+                  <div class="col-md-6">
+                    <input type="text" class="form-control" name="demo_link" placeholder="Demo Video Link" required>
+                  </div>
+    
+                  <div class="col-md-6">
+                    <input type="text" class="form-control" name="dataset" placeholder="Link To Dataset (If No fill NA)" required>
+                  </div>
+    
+                <div>
+    
+                  <div class="col-md-12 text-center">
+                    {% if error_message %}
+                    <div class="error-message">{{error_message}}</div>
+                    {% endif %}
+                    {% if success_message %}
+                    <div class="sent-message">Your Response has been sent. Thank you!</div>
+                    {% endif %}
+
+                    <button type="submit">Submit Project</button>
+                  </div>
+    
+                </div>
+              </form>
+              
+            </div>
+    
+          </div>
+    
+        </div>
+
+
+  </section>
+
+
+
+{% endblock %}
+

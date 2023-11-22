@@ -1,0 +1,97 @@
+{% extends 'base.html' %} 
+{% load static %} 
+
+{% block title %}InspireSphere | Student Information{% endblock %}
+
+{% block body %}
+
+    <section id="contact" class="contact mt-5 pt-5">
+
+        <div class="container mt-5" data-aos="fade-up">
+    
+          <header class="section-header">
+            <h2>Student Information</h2>
+            <p>
+                Please fill in the form below to register as a student.
+            </p>
+          </header>
+    
+          <div class="row gy-4">
+    
+            <div class="col-lg-6 mx-auto">
+              <form method="post" class="php-email-form" enctype="multipart/form-data">
+                {% csrf_token %}
+                <div class="row gy-4 pt-5">
+    
+                  <div class="col-md-6">
+                    <input type="file" class="form-control" name="image" placeholder="Photo" required>
+                  </div>
+    
+                  <div class="col-md-6">
+                    <input type="number" class="form-control" name="age" placeholder="Age" required>
+                  </div>
+    
+                  <div class="col-md-6">
+                    <input type="number" class="form-control" name="mobile" placeholder="Contact No." required>
+                  </div>
+    
+                  <div class="col-md-6">
+                    <input type="text" class="form-control" name="college" placeholder="College" required>
+                  </div>
+    
+                  <div class="col-md-6">
+                    <input type="text" class="form-control" name="state" placeholder="State" required>
+                  </div>
+    
+                  <div class="col-md-6">
+                    <input type="text" class="form-control" name="city" placeholder="City" required>
+                  </div>
+    
+                  <div class="col-md-6">
+                    <input type="text" class="form-control" name="role" placeholder="Role" required>
+                  </div>
+                  
+                  <div class="col-md-6">
+                    <input type="text" class="form-control" name="interest1" placeholder="Interest 1" required>
+                  </div>
+                  
+                  <div class="col-md-6">
+                    <input type="text" class="form-control" name="interest2" placeholder="Interest 2" required>
+                  </div>
+                  
+                  <div class="col-md-6">
+                    <input type="text" class="form-control" name="interest3" placeholder="Interest 3" required>
+                  </div>
+                  
+                  <div class="col-md-12">
+                    <textarea class="form-control" name="about_yourself" rows="6" placeholder="About Yourself" required></textarea>
+                  </div>
+    
+    
+                  <div class="col-md-12 text-center">
+                    {% if error_message %}
+                    <div class="error-message">{{error_message}}</div>
+                    {% endif %}
+                    {% if success_message %}
+                    <div class="sent-message">Your message has been sent. Thank you!</div>
+                    {% endif %}
+
+                    <button type="submit">Get Started</button>
+                  </div>
+    
+                </div>
+              </form>
+              
+            </div>
+    
+          </div>
+    
+        </div>
+
+
+  </section>
+
+
+
+{% endblock %}
+
